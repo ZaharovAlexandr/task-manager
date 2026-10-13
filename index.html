@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="form">
+        <label for="title">Задача</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="description">Описание</label>
+        <textarea name="description" id="description"></textarea>
+
+        <label>
+            <input type="radio" name="isDone" value='true' required id='trueRadio'>
+            Да
+        </label>
+        <label>
+            <input type="radio" name="isDone" value='false' required id='falseRadio'>
+            Нет
+        </label>
+        <input type="submit" value="Добавить задачу" id="submit">
+    </form>
+    <script src="./index.js"></script>
+</body>
+
+</html>
