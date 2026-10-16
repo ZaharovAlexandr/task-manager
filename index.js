@@ -2,13 +2,13 @@ const tasks = []
 let completedTaskCount = 0;
 
 function setTask(title, description, isCompleted) {
-    if (isCompleted = false) {
+    if (isCompleted === false) {
         const task = {
             title: title,
             description: description,
             isCompleted: isCompleted,
             createdDate: new Date(),
-            completedDate: new Date()
+            completedDate: null
         }
         tasks.push(task);
     } else {
@@ -17,7 +17,7 @@ function setTask(title, description, isCompleted) {
             description: description,
             isCompleted: isCompleted,
             createdDate: new Date(),
-            completedDate: null
+            completedDate: new Date()
         }
         tasks.push(task);
     }
@@ -56,3 +56,30 @@ function clearTasks() {
     tasks.length = 0;
 }
 
+function getTaskDescriptions() {
+    const taskDescriptions = tasks.map(task => task.description)
+    console.log(taskDescriptions)
+}
+
+function getLongTasks() {
+    const longTasks = tasks.filter(task => task.title.length > 10)
+    console.log(longTasks)
+}
+
+function getTasksByDateRange(startDate, endDate, isCompleted = false) {
+    if (isCompleted) {
+        const taskCompletedRange = tasks.filter(task => startDate.getTime() < task.createdDate.getTime() < endDate.getTime() && task.isCompleted === true);
+        console.log(taskCompletedRange)
+    }
+}
+
+function clearShortTasks() {
+    const shortTaskArray = tasks.filter(task => task.title.length >= 5)
+    clearTasks()
+    tasks.push(shortTaskArray)
+    console.log(tasks)
+}
+
+function taskTitileEditor(index, newTitle) {
+    tasks[index].title = newTitle;
+}   
